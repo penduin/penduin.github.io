@@ -28,6 +28,11 @@ function tick(scene) {
 	SID.thing.bug.obj._$.blood.scale = 1 + ((Math.sin(prog * 3)) /  4);
 	SID.thing.bug.obj._$.wing1.rotate = (Math.sin(prog * 30) * 45);
 	SID.thing.bug.obj._$.wing2.rotate = -(Math.sin(prog * 30) * 45);
+
+	SID.thing.bug.obj._$.body.offset.x = 238 + (Math.cos(prog * 1) * 10);
+	SID.thing.bug.obj._$.body.scale = 1 + (Math.cos(prog * 3) / 100);
+	SID.thing.bug.obj._$.body.rotate = (Math.cos(prog * 2) * 1);
+	SID.thing.bug.obj._$.blood.rotate = (Math.sin(prog * 2) * 3);
 }
 
 function transitionEnd() {
