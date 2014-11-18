@@ -55,7 +55,7 @@ function start() {
 	SID.thing.bug.x = 1920/2;
 	SID.thing.bug.y = 1080/2;
 
-	SID.scene.transition(new penduinTRANSITION(transitionEnd), SID.maskout);
+	SID.scene.transition(SID.mask, SID.maskout);
 }
 
 function combineCallbacks(cbList, resultsVary, cb) {
@@ -90,6 +90,9 @@ window.addEventListener("load", function() {
 	SID.canvas = document.querySelector("#display");
 	var cbs = [];
 
+	// load transition
+	SID.mask = new penduinTRANSITION(transitionEnd, "image/heart.png");
+
 	// load object armatures
 	Object.keys(SID.json).every(function(key) {
 		cbs.push(function(cb) {
@@ -109,5 +112,5 @@ window.addEventListener("click", function() {
 	SID.scene.resume();
 	SID.maskout = !SID.maskout;
 	SID.acceptinput = false;
-	SID.scene.transition(new penduinTRANSITION(transitionEnd), SID.maskout);
+	SID.scene.transition(SID.mask, SID.maskout);
 });
